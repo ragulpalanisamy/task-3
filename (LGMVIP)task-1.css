@@ -1,0 +1,36 @@
+.h1{
+    background-color: grey ;
+}
+.h2{
+    background-color: cadetblue;
+    font-size: 200%;
+}
+.p{
+    text-align:center;
+    font-family: 'Times New Roman';
+    font-size: medium;
+}
+.img{
+    text-align: center;
+    background-color: burlywood;
+}
+@media (max-width: 650px) {
+    #features {
+      margin-top: 0;
+    }
+  }
+  
+  #how-it-works {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  
+#how-it-works > iframe {
+    max-width: 560px;
+    width: 100%;
+  }
+ #nav-bar{
+     text-align: center;
+
+ }
