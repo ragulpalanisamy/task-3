@@ -1,0 +1,35 @@
+        /********** Topics ***********/
+        @import './_globalVariables.scss';
+        @import './_commonFunction.scss';
+        /* Statements and Operators */
+        /* 1. Universal Statements  */
+            /* Flow control at-rules */
+        /* @if and @else */
+        @if ($primary-color == $secondary-color) {
+            body {
+                background-color: $secondary-color;
+            }
+        } @else {
+            body {
+                background-color: $primary-color;
+            }
+        }
+
+        /* @each - loops over a list of values to the variables */
+        @each $color in $colors {
+           .change-#{$color} {
+               color: $color;
+           }
+        }
+
+
+    button {
+        color: $secondary-color;
+        &:hover {
+            color: $primary-color;
+        }
+        &:active {
+            color: $secondary-color;
+        }
+    }
+
