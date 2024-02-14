@@ -1,0 +1,21 @@
+
+@use './_globalVariables.scss' as *;
+/* Sample Header */
+
+h1 {
+    /* importing the mixin function */
+    @include flexCenter();
+
+    font-size: 3em;
+    /* importing the variable */
+    color: $primary-color;
+    text-align: center;
+
+}
+
+
+/* import the mixin function with parameters */
+
+h2 {
+    @include gridCenter(row, $secondary-color);
+}

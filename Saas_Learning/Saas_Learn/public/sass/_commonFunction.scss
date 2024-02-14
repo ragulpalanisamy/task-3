@@ -1,0 +1,16 @@
+/* Mixions are used as the common function */
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* function with parameters */
+
+@mixin gridCenter($direction, $backgroundcolor) {
+    display: grid;
+    place-items: center;
+    grid-auto-flow: $direction;
+    background-color: $backgroundcolor;
+}
