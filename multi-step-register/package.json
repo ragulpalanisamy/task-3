@@ -7,26 +7,32 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write, --config ./ .prettierrc .",
+    "format": "npx prettier --write . --config ./.prettierrc",
     "preview": "vite preview",
-    "prepare": "cd .. && husky frontend/.husky"
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-    "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --write"
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run format",
+      "npm run lint"
+    ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
     "autoprefixer": "^10.4.17",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.2",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.1",
+    "redux": "^5.0.1",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
