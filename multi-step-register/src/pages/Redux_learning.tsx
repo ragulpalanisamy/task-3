@@ -1,5 +1,8 @@
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { legacy_createStore as createStore } from 'redux';
+import RtkQuery from '../components/screens/RtkQuery';
+import { configureStore } from '@reduxjs/toolkit';
+import { pokemonApi } from '../features/api/apislice';
 
 // Reducer
 const reducer = (state = 0, action: any) => {
@@ -14,12 +17,22 @@ const reducer = (state = 0, action: any) => {
 };
 
 // Create the Redux store
-const store = createStore(reducer);
+const store = configureStore({
+    reducer: {
+      // Add the generated reducer as a slice to your store
+      [pokemonApi.reducerPath]: pokemonApi.reducer,
+      ['counter']: reducer
+    },
+    // Adding the api middleware to the store
+    middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware().concat(pokemonApi.middleware)
+  });
 
+// Component
 // Component
 const ReduxLearning = () => {
     const dispatch = useDispatch();
-    const counter = useSelector((state: any) => state);
+    const counter = useSelector((state: any) => state.counter); // Select the 'counter' slice of the state
 
     return (
         <>
@@ -33,10 +46,12 @@ const ReduxLearning = () => {
     );
 };
 
+
 const ReduxApp = () => {
     return (
         <Provider store={store}>
             <ReduxLearning />
+            <RtkQuery />
         </Provider>
     );
 };
